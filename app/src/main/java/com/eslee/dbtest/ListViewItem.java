@@ -5,10 +5,24 @@ package com.eslee.dbtest;
  */
 
 public class ListViewItem {
+    private int id_value;
     private String titleStr ;
     private String datetimeStr ;
     private int point_value;
     private String pointStr;
+
+    public ListViewItem(int id, String title, String datetime, int point, String pointString){
+        id_value = id;
+        titleStr = title;
+        datetimeStr = datetime;
+        point_value = point;
+        pointStr = pointString;
+    }
+
+    public void setId(int id){id_value=id;}
+    public int getId(){
+        return this.id_value;
+    }
 
     public void setTitle(String title){
         titleStr = title;

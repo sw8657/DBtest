@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -57,6 +58,7 @@ public class ListViewAdapter extends BaseAdapter {
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(pos);
 
+        view.setTag(listViewItem);
         // 아이템 내 각 위젯에 데이터 반영
         titleView.setText(listViewItem.getTitle());
         datetimeView.setText(listViewItem.getDateTime());
@@ -67,18 +69,13 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(String title, String datetime, int point, String point_detail) {
-        ListViewItem item = new ListViewItem();
-
-        item.setTitle(title);
-        item.setDateTime(datetime);
-        item.setPoint(point);
-        item.setPointStr(point_detail);
-
+    public void addItem(int id, String title, String datetime, int point, String point_detail) {
+        ListViewItem item = new ListViewItem(id,title,datetime,point,point_detail);
         listViewItemList.add(item);
     }
 
     public void Clear(){
         listViewItemList.clear();
     }
+
 }
